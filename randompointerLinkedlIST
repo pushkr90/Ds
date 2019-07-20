@@ -1,0 +1,57 @@
+class Node
+{
+public int val;
+public Node next;
+public Node random;
+
+public Node()
+{}
+public Node(int _val,Node _next,Node _random)
+{
+val=_val;
+next=_next;
+random=_random;
+}
+};
+
+class solution
+{
+  public Node random(Node head)
+  {
+    HashMap<Node,Node> rambo= new HashMap<>();
+    
+    Node dummy= new Node(0);
+    Node current= dummy;
+    Node newNode=null;
+    
+    while(head!=null)
+    {
+      if(rambo.containsKey(head)
+      {
+        newNode= rambo.get(head);
+      }
+      else
+      {
+      newNode=new Node(head.val);
+      rambo.put(head,newNode);
+      }
+      
+      if(head.random!=null)
+      {
+        if(rambo.containsKey(head.random)
+        {
+          newNode.random= rambo.get(head.random);
+        }
+        else
+        {
+          newNode.random=new Node(head.random.val);
+          rambo.put(head.random,newNode.random);
+        }
+        current.next=newNode;
+        current=newNode;
+        head=head.next;
+      }
+      return dummy.next;
+    }
+  }
+}
