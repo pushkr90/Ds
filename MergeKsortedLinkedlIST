@@ -1,0 +1,36 @@
+public class ListNode
+{
+int val;
+ListNode next;
+ ListNode(int x)
+ {
+ val=x;
+ }
+}
+
+class solution
+{
+  public ListNode merge(ListNode [] lists)
+  {
+    PriorityQueue<Integers> rambo= new PriorityQueue<>();
+    for(ListNode each:lists)
+    {
+    while(each!=null)
+    {
+    rambo.add(each.val);
+    each=each.next;
+    }
+   
+    }
+    ListNode dummy= new ListNode(-1);
+    ListNode head=dummy;
+    
+    while(!rambo.isEmpty())
+    {
+      head.next=new ListNode(rambo.remove());
+      head=head.next;
+    }
+    return dummy.next;
+    
+  }
+}
